@@ -5,7 +5,7 @@
 ## 安装
 
 ```bash
-pip install wwlei-common-utils
+pip install git+https://github.com/wang14597/wwlei-common-utils.git
 ```
 
 ## 工具包说明
