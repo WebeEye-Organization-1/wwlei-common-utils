@@ -61,5 +61,7 @@ setup(
         "urllib3==2.3.0",
         "vertexai==1.71.1",
         "websockets==14.2",
+        "SQLAlchemy==2.0.39",
+        "greenlet==3.1.1"
     ],
 )
