@@ -27,6 +27,3 @@ def get_logger(name, to_file=False):
     logger.addHandler(console_handler)
 
     return logger
-
-
-logger = get_logger("bilibili-gemini", to_file=True)
