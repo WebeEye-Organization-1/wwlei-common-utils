@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from google.cloud import storage
 from google.cloud.storage import Blob, Bucket
-from credentials import get_credentials
+from .credentials import get_credentials
 
 
 class GCS:

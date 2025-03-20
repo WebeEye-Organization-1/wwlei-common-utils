@@ -3,8 +3,8 @@ from enum import Enum
 
 from google import genai
 from google.genai import types
-from google.oauth2.service_account import Credentials
-from credentials import get_credentials
+
+from .credentials import get_credentials
 
 
 class Veo2:

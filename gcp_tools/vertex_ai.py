@@ -5,7 +5,7 @@ import vertexai
 from google.cloud import aiplatform
 from vertexai.generative_models import GenerativeModel, Part, GenerationConfig
 
-from credentials import get_credentials
+from .credentials import get_credentials
 from https_tools.media_tools import get_mime_type
 
 
