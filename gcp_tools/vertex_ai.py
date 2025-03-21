@@ -4,6 +4,7 @@ from typing import List
 import vertexai
 from google.cloud import aiplatform
 from vertexai.generative_models import GenerativeModel, Part, GenerationConfig
+from vertexai.vision_models import ImageGenerationModel
 
 from .credentials import get_credentials
 from https_tools.media_tools import get_mime_type
@@ -51,3 +52,36 @@ class VertexAIGemini:
             return loads
         except Exception as e:
             raise Exception(e)
+
+
+class VertexAIImagen:
+
+    def __init__(self,
+                 project: str,
+                 location: str,
+                 service_account: str | dict = None):
+        service_account_credentials = get_credentials(service_account)
+        if service_account_credentials:
+            aiplatform.init(project=project, location=location, credentials=service_account_credentials)
+            vertexai.init(project=project, location=location, credentials=service_account_credentials,
+                          api_transport="rest")
+        else:
+            aiplatform.init(project=project, location=location)
+            vertexai.init(project=project, location=location, api_transport="rest")
+
+        self.imagen = ImageGenerationModel.from_pretrained("imagen-3.0-generate-002")
+
+    def generate_image(self,
+                       prompt: str,
+                       aspect_ratio: str = "16:9",
+                       sample_count: int = 2,
+                       ):
+        result = self.imagen.generate_images(
+            prompt=prompt,
+            number_of_images=sample_count,
+            aspect_ratio=aspect_ratio,
+            safety_filter_level="block_few"
+        )
+        if len(result.images) < 1:
+            raise Exception(f"[Imagen] failed for reason: {result}")
+        return result.images
