@@ -15,4 +15,4 @@ def seconds_to_time_str(seconds):
 
 
 def get_uid():
-    return datetime.now().strftime("%m%d%H%M")
+    return datetime.now().strftime("%m%d%H%M%S%f")[:-3]

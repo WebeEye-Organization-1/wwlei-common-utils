@@ -52,7 +52,7 @@ write_to_csv(data, "output.csv")
 
 - `get_uid() -> str`
   - 功能：基于当前时间生成唯一标识符
-  - 返回：格式为"MMDDHHMM"的字符串
+  - 返回：格式为"MMDDHHMMSSff"的字符串
 
 示例代码：
 ```python
@@ -63,7 +63,7 @@ seconds = convert_time_to_seconds("05:30")  # 返回 330
 time_str = seconds_to_time_str(330)  # 返回 "05:30"
 
 # 生成唯一标识符
-uid = get_uid()  # 返回类似 "03151425" (3月15日14点25分)
+uid = get_uid()  # 返回类似 "031514255544" (3月15日14点25分55秒44毫秒)
 ```
 
 ### 3. ffmpeg_tools
