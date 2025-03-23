@@ -62,6 +62,7 @@ setup(
         "vertexai==1.71.1",
         "websockets==14.2",
         "SQLAlchemy==2.0.39",
-        "greenlet==3.1.1"
+        "greenlet==3.1.1",
+        "google-cloud-texttospeech==2.25.1"
     ],
 )
