@@ -33,12 +33,12 @@ class VertexAIGemini:
     def generate_content(self,
                          prompt: str,
                          images_path: List = None,
-                         video_path: str = None
+                         videos_path: List = None
                          ) -> dict[str, str]:
         contents = []
         contents.append(prompt)
-        if video_path:
-            contents.append(Part.from_uri(video_path, mime_type="video/mp4"))
+        if videos_path:
+            contents.extend([Part.from_uri(video_path, mime_type="video/mp4") for video_path in videos_path])
         if images_path:
             contents.extend([Part.from_uri(i, mime_type=get_mime_type(i)) for i in images_path])
         response = self.gemini_model.generate_content(
