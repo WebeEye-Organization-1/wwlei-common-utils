@@ -14,6 +14,8 @@ class Veo2:
 
     class NumberOfVideos(Enum):
         ONE = 1
+        TWO = 2
+        THREE = 3
         FOUR = 4
 
     class DurationSeconds(Enum):
