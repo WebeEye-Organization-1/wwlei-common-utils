@@ -84,6 +84,7 @@ class Veo2:
             image = types.Image(image_bytes=image_bytes, mime_type=image_type)
         else:
             image = types.Image.from_file(location=image_path, mime_type=image_type)
+            image.mime_type=image_type
 
         operation = self.client.models.generate_videos(
             model=self.video_model,
