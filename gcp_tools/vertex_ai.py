@@ -59,6 +59,7 @@ class VertexAIImagen:
     def __init__(self,
                  project: str,
                  location: str,
+                 model: str,
                  service_account: str | dict = None):
         service_account_credentials = get_credentials(service_account)
         if service_account_credentials:
@@ -69,7 +70,7 @@ class VertexAIImagen:
             aiplatform.init(project=project, location=location)
             vertexai.init(project=project, location=location, api_transport="rest")
 
-        self.imagen = ImageGenerationModel.from_pretrained("imagen-3.0-generate-002")
+        self.imagen = ImageGenerationModel.from_pretrained(model)
 
     def generate_image(self,
                        prompt: str,
